@@ -1,0 +1,19 @@
+/*tailwind css*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*Default font 'Roboto'*/
+@layer base{
+    html{
+        font-family: 'Roboto','Poppins', sans-serif;
+    }
+}
+
+/*Default background*/
+@layer base{
+    body{
+        background-color: #F8F9FA;
+    }
+}

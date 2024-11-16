@@ -12,12 +12,12 @@ const {
 } = require('../validators/loginValidator');
 
 const {
-	uploadToStorage,
 	handleUploadedFile,
 	getEventDetails,
 	updateEvents,
 	deleteEvent,
 } = require('../controller/eventController');
+const{uploads} = require('../middlewares/multer/uploadController')
 
 //routes
 router.post(
@@ -35,13 +35,13 @@ router.post(
 
 router.post(
 	'/add-event',
-	uploadToStorage.single('eventThumbnail'),
+	uploads.single('eventThumbnail'),
 	handleUploadedFile
 );
 
 router.patch(
 	'/update-event/:id',
-	uploadToStorage.single('eventThumbnail'),
+	uploads.single('eventThumbnail'),
 	updateEvents
 );
 

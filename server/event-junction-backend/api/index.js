@@ -13,15 +13,14 @@ const app = express();
 dotenv.config();
 
 //database connection
-const db = mongoose
-	.connect(process.env.MONGOOSE_CONNECTION_STRING, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	})
+const database = mongoose
+	.connect(process.env.MONGOOSE_CONNECTION_STRING)
 	.then(() => {
-		console.log('Database connection successfull!');
+		console.log('Database connected!');
 	})
-	.catch((err) => console.log(err));
+	.catch((err) => {
+		console.log(err);
+	});
 
 //middlewares
 app.use(express.json());

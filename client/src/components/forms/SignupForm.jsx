@@ -15,6 +15,7 @@ function SignupForm() {
     const [confirmPass, setConfirmPass] = useState('');
 
     const [error, setError] = useState({});
+    const [loading, setLoading] = useState(false);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -27,6 +28,7 @@ function SignupForm() {
         };
 
         try {
+            setLoading(true);
             const response = await axios.post(
                 `${baseUrl}/user/signup`,
                 formData,
@@ -50,6 +52,8 @@ function SignupForm() {
             } else {
                 toast.error('Signup failed!' || error.response.data.message);
             }
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -149,6 +153,7 @@ function SignupForm() {
                         <LoginSignupFormBtn
                             type="submit"
                             btnName="Signup"
+                            isLoading={loading}
                             btnColor="secondary" //color from color-scheme
                         />
 

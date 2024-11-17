@@ -13,6 +13,7 @@ function LoginForm() {
     const [password, setPassword] = useState('');
 
     const [error, setError] = useState({});
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     async function handleSubmit(e) {
@@ -24,6 +25,7 @@ function LoginForm() {
         };
 
         try {
+            setLoading(true);
             const response = await axios.post(
                 `${baseUrl}/user/login`,
                 formData,
@@ -37,10 +39,10 @@ function LoginForm() {
             if (token) {
                 localStorage.setItem('user-token', token);
                 setError({});
-                toast.success(message);
                 setTimeout(() => {
                     navigate('/');
                 }, 1000);
+                toast.success(message);
             }
         } catch (error) {
             if (error.response && error.response.data.errors) {
@@ -48,6 +50,8 @@ function LoginForm() {
             } else {
                 toast.error(error.response.data.message);
             }
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -97,6 +101,7 @@ function LoginForm() {
                         <LoginSignupFormBtn
                             type="submit"
                             btnName="Login"
+                            isLoading={loading}
                             btnColor="secondary" //color from color-scheme
                         />
 

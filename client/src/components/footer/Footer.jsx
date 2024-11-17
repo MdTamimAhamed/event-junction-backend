@@ -73,7 +73,7 @@ function Footer() {
                 <div>
                     <p className="mt-40"></p>
                     <p className="mt-2 text-center font-poppins text-[.7em] font-light tracking-[0.09rem] text-[#dcdde1]">
-                        DIU Event Junction | Tamim Ahamed &copy; 2024
+                        DIU EMS | Tamim Ahamed &copy; 2024
                     </p>
                 </div>
             </div>

@@ -33,7 +33,7 @@ function Login() {
             </div>
 
             <footer className="flex justify-center text-xs text-white/30">
-                <p>DIU Event Junction &copy; 2024 | All right reserved.</p>
+                <p>DIU EMS | Tamim Ahamed &copy; 2024</p>
             </footer>
         </>
     );

@@ -24,7 +24,7 @@ const Loading = ({ type, size }) => {
 
     return (
         <ReactLoading
-            className="flex items-center justify-start"
+            className="mt-[1px] flex items-center justify-start"
             type={type}
             height={loaderSize}
             width={loaderSize}

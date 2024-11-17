@@ -79,7 +79,7 @@ function HomeHeader({ user, isHome }) {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="#">
+                                <Link to="/contact">
                                     <span>Contact</span>
                                 </Link>
                             </li>

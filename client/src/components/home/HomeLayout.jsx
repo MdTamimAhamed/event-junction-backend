@@ -8,20 +8,25 @@ import { baseUrl } from '../../Utilities/base/baseURL';
 import { useState } from 'react';
 import ClientCard from '../../Utilities/cards/ClientCard';
 import jwtDecode from 'jwt-decode';
+import Loading from '../reuseables/Loading';
 
 function HomeLayout() {
     const [fetchedData, setFetchedData] = useState(null);
     const [userLoggedIn, setUserLoggedIn] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userToken, setUserToken] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchAllData = async () => {
             try {
+                setLoading(true);
                 const response = await axios.get(`${baseUrl}/admin/get-event`);
                 setFetchedData(response.data);
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching data!');
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -45,33 +50,41 @@ function HomeLayout() {
             <div>
                 <HomeHeader user={userLoggedIn} />
 
-                {fetchedData && fetchedData.length > 0 ? (
-                    <>
-                        <HomeHeroSection
-                            key={fetchedData[0]._id}
-                            title={fetchedData[0].eventTitle}
-                            thumbnail={fetchedData[0].eventThumbnail}
-                            type={fetchedData[0].eventType}
-                            dates={fetchedData[0].dates}
-                            times={fetchedData[0].times}
-                            venue={fetchedData[0].venue}
-                        />
-                    </>
+                {loading ? (
+                    <div className="mt-20 flex justify-center">
+                        <Loading type="spin" size="sm" />
+                    </div>
                 ) : (
-                    <p>Nothing to show</p>
-                )}
+                    <>
+                        {fetchedData && fetchedData.length > 0 ? (
+                            <>
+                                <HomeHeroSection
+                                    key={fetchedData[0]._id}
+                                    title={fetchedData[0].eventTitle}
+                                    thumbnail={fetchedData[0].eventThumbnail}
+                                    type={fetchedData[0].eventType}
+                                    dates={fetchedData[0].dates}
+                                    times={fetchedData[0].times}
+                                    venue={fetchedData[0].venue}
+                                />
+                            </>
+                        ) : (
+                            <p>Nothing to show</p>
+                        )}
 
-                <div className="container mx-auto px-24 py-24">
-                    <p className="mb-4 text-lg text-white/80">
-                        Upcoming More Events
-                    </p>
-                    <ClientCard
-                        eventData={fetchedData}
-                        altTitle={true}
-                        isLoggedIn={isLoggedIn}
-                        userToken={userToken}
-                    />
-                </div>
+                        <div className="container mx-auto px-24 py-24">
+                            <p className="mb-4 text-lg text-white/80">
+                                Upcoming More Events
+                            </p>
+                            <ClientCard
+                                eventData={fetchedData}
+                                altTitle={true}
+                                isLoggedIn={isLoggedIn}
+                                userToken={userToken}
+                            />
+                        </div>
+                    </>
+                )}
             </div>
 
             <Footer />

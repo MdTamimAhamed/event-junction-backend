@@ -205,7 +205,7 @@ function EventEdit() {
                                             }
                                         />
                                         <button
-                                            className="text-md absolute left-0 top-0 flex h-full w-full items-center justify-center rounded-md bg-black text-white"
+                                            className="text-md absolute left-0 top-0 flex h-full w-full items-center justify-center rounded-md bg-secondary text-white"
                                             type="button"
                                         >
                                             <MdOutlineFileUpload className="mr-2 text-xl" />{' '}
@@ -240,7 +240,7 @@ function EventEdit() {
                                         onChange={(e) =>
                                             setEventType(e.target.value)
                                         }
-                                        className="rounded-md bg-black px-6 py-1 text-white"
+                                        className="rounded-md bg-background px-6 py-1 text-white"
                                         name="type"
                                         id="type"
                                     >
@@ -268,7 +268,7 @@ function EventEdit() {
                                         />
                                         <MdAddBox
                                             onClick={handleAddItem}
-                                            className="cursor-pointer text-4xl text-black"
+                                            className="cursor-pointer text-4xl text-secondary"
                                         />
                                     </div>
                                 </div>
@@ -298,10 +298,10 @@ function EventEdit() {
                             </div>
 
                             <div className="mt-10">
-                                <h1 className="text-lg font-medium text-black">
+                                <h1 className="text-lg font-medium text-white/70">
                                     Event Schedule
                                 </h1>
-                                <p className="pb-2 text-sm text-light-gray">
+                                <p className="pb-2 text-sm text-white/30">
                                     All the fields are required!
                                 </p>
                             </div>
@@ -315,9 +315,11 @@ function EventEdit() {
                                             <span className="text-red">*</span>
                                         </p>
                                         <div className="ml-10">
-                                            <p>Start Date:</p>
+                                            <p className="mt-2 text-sm">
+                                                Start Date:
+                                            </p>
                                             <input
-                                                className="w-[200px] rounded-md border-[1px] border-light-gray px-2 py-1"
+                                                className="w-[200px] rounded-md bg-background px-2 py-1"
                                                 type="date"
                                                 placeholder="Start date"
                                                 value={eventStartDate}
@@ -330,15 +332,14 @@ function EventEdit() {
                                                         e.target.value
                                                     );
                                                 }}
+                                                style={{ colorScheme: 'dark' }}
                                             />
-                                            <p className="mb-4 text-light-gray">
-                                                Previous start:{' '}
-                                                {updateEventData.dates[0]}
-                                            </p>
 
-                                            <p>End Date:</p>
+                                            <p className="mt-2 text-sm">
+                                                End Date:
+                                            </p>
                                             <input
-                                                className="w-[200px] rounded-md border-[1px] border-light-gray px-2 py-1"
+                                                className="w-[200px] rounded-md bg-background px-2 py-1"
                                                 type="date"
                                                 placeholder="End date"
                                                 value={eventEndDate}
@@ -347,11 +348,8 @@ function EventEdit() {
                                                         e.target.value
                                                     )
                                                 }
+                                                style={{ colorScheme: 'dark' }}
                                             />
-                                            <p className="mb-4 text-light-gray">
-                                                Previous end:{' '}
-                                                {updateEventData.dates[1]}
-                                            </p>
                                         </div>
                                     </div>
 
@@ -361,9 +359,11 @@ function EventEdit() {
                                             <span className="text-red">*</span>
                                         </p>
                                         <div className="ml-10">
-                                            <p>Start Time:</p>
+                                            <p className="mt-2 text-sm">
+                                                Start Time:
+                                            </p>
                                             <input
-                                                className="w-[200px] rounded-md border-[1px] border-light-gray px-2 py-1"
+                                                className="w-[200px] rounded-md bg-background px-2 py-1"
                                                 type="time"
                                                 placeholder="Start date"
                                                 value={eventStartTime}
@@ -372,15 +372,14 @@ function EventEdit() {
                                                         e.target.value
                                                     )
                                                 }
+                                                style={{ colorScheme: 'dark' }}
                                             />
-                                            <p className="mb-4 text-light-gray">
-                                                Previous start:{' '}
-                                                {updateEventData.times[0]}
-                                            </p>
 
-                                            <p>End Time:</p>
+                                            <p className="mt-2 text-sm">
+                                                End Time:
+                                            </p>
                                             <input
-                                                className="w-[200px] rounded-md border-[1px] border-light-gray px-2 py-1"
+                                                className="w-[200px] rounded-md bg-background px-2 py-1"
                                                 type="time"
                                                 placeholder="End date"
                                                 value={eventEndTime}
@@ -389,11 +388,8 @@ function EventEdit() {
                                                         e.target.value
                                                     )
                                                 }
+                                                style={{ colorScheme: 'dark' }}
                                             />
-                                            <p className="mb-4 text-light-gray">
-                                                Previous start:{' '}
-                                                {updateEventData.times[1]}
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -408,7 +404,7 @@ function EventEdit() {
                                         onChange={(e) =>
                                             setVenue(e.target.value)
                                         }
-                                        className="max-w-[400px] rounded-md bg-black px-4 py-1 text-white"
+                                        className="max-w-[400px] rounded-md bg-background px-4 py-1 text-white"
                                     >
                                         <option value="">Select Venue</option>
                                         <option value="International Conference Hall, Daffodil International University (ICH)">
@@ -436,7 +432,7 @@ function EventEdit() {
                                 <div className="w-full">
                                     <div className="flex items-center justify-start">
                                         <input
-                                            className="w-[60%] rounded-md border-[1px] border-light-gray px-4 py-1 outline-light-gray"
+                                            className="w-[60%] rounded-md bg-background px-4 py-1 outline-light-gray"
                                             type="text"
                                             value={speaker}
                                             onChange={(e) =>
@@ -447,7 +443,7 @@ function EventEdit() {
                                         <button
                                             type="button"
                                             onClick={handleAddSpeaker}
-                                            className="ml-2 flex flex-nowrap items-center rounded-md bg-black px-2 py-[5px] text-white"
+                                            className="ml-2 flex flex-nowrap items-center rounded-md bg-secondary px-2 py-[5px] text-white"
                                         >
                                             + Add
                                         </button>
@@ -481,10 +477,10 @@ function EventEdit() {
                             </div>
 
                             <div className="mt-10">
-                                <h1 className="text-lg font-medium text-black">
+                                <h1 className="text-lg font-medium text-white/70">
                                     Event Details
                                 </h1>
-                                <p className="pb-2 text-sm text-light-gray">
+                                <p className="pb-2 text-sm text-white/30">
                                     Some fields are required!
                                 </p>
                             </div>

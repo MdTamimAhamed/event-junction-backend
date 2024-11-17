@@ -35,7 +35,7 @@ function About() {
                             <div className="flex flex-wrap justify-center gap-x-14 gap-y-20 [&>div]:h-48 [&>div]:w-48">
                                 <div className="group relative">
                                     <img
-                                        src="/src/images/profiles/tamim.jpg"
+                                        src="/images/profiles/tamim.jpg"
                                         alt="profile_tamim"
                                         className="overflow-hidden rounded-lg transition-all ease-in group-hover:scale-105"
                                     />

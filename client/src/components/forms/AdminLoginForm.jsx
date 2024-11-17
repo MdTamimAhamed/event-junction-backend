@@ -5,11 +5,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { baseUrl } from '../../Utilities/base/baseURL';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import Loading from '../reuseables/Loading';
 
 function AdminLoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState({});
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -21,6 +23,7 @@ function AdminLoginForm() {
         };
 
         try {
+            setLoading(true);
             const response = await axios.post(
                 `${baseUrl}/admin/login`,
                 formData,
@@ -45,6 +48,8 @@ function AdminLoginForm() {
             } else {
                 toast.error(error.response.data.message);
             }
+        } finally {
+            setLoading(false);
         }
     }
     return (
@@ -89,7 +94,8 @@ function AdminLoginForm() {
 
                     <LoginSignupFormBtn
                         type="submit"
-                        btnName="Login"
+                        btnName="Admin Login"
+                        isLoading={loading}
                         btnColor="secondary"
                     />
 

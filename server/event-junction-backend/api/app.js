@@ -27,7 +27,7 @@ const db = mongoose
 app.use(express.json());
 app.use(
 	cors({
-		origin: ['https://diu-ems-server.vercel.app', 'http://localhost:5173'],
+		origin: ['https://diu-ems-client.vercel.app', 'http://localhost:5173'],
 		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
 		credentials: true,
 		allowedHeaders: 'Content-Type, Authorization',

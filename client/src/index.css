@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    html{
+        font-family: 'Roboto','Poppins', sans-serif;
+    }
+}
+
+@layer base{
+    body{
+        background-color: #0D111D;
+    }
+}
+
+
+/*--------- React Quill Text Editor styles (CSS)--------*/
+.ql-editor{
+    color: rgba(255, 255, 255, 0.7);
+    background: #0D111D;
+}
+.quill > .ql-container > .ql-editor.ql-blank::before{
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+
+}
+.ql-toolbar .ql-stroke {
+    fill: none;
+    stroke: #fff;
+}
+
+.ql-toolbar .ql-fill {
+    fill: #fff;
+    stroke: none;
+}
+
+.ql-toolbar .ql-picker {
+    color: #fff;
+}
+

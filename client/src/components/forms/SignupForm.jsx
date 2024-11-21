@@ -101,7 +101,7 @@ function SignupForm() {
                             setState={setEmail}
                             type="email"
                             name="email"
-                            placeholder="DIU Email"
+                            placeholder="Email"
                         />
 
                         <p

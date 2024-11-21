@@ -62,13 +62,22 @@ function AdminLoginForm() {
                     </p>
                 </div>
                 <form onSubmit={handleSubmit} className="px-8">
-                    <FormInputHandler
-                        state={email}
-                        setState={setEmail}
-                        type="email"
-                        name="diuEmail"
-                        placeholder="Enter email"
-                    />
+                    <div className="group relative">
+                        <FormInputHandler
+                            state={email}
+                            setState={setEmail}
+                            type="email"
+                            name="diuEmail"
+                            placeholder="Enter email"
+                        />
+                        <div
+                            className={`absolute -right-2/4 top-1/2 hidden w-[200px] -translate-y-1/2 rounded bg-black p-2 text-[0.7em] text-white shadow-md group-hover:block`}
+                        >
+                            <div className="absolute -left-1 top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 bg-black"></div>
+                            <p>use "tamimahamed016@gmail.com" or signup!</p>
+                            <p>password: 123456</p>
+                        </div>
+                    </div>
 
                     <p
                         className={`${
